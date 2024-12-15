@@ -6,6 +6,7 @@
 # Tech Stack
 - Astro JS
 - Tailwind CSS
+- Typescript
 
 ## 🧞 Commands
 
