@@ -8,7 +8,7 @@
 }
 
 #menustate:checked ~ header .label-icon-close{
-    display: inline-block;
+    display: block;
 }
 
 #menustate:checked ~ header .label-icon-open{

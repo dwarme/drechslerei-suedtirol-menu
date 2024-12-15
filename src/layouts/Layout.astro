@@ -1,3 +1,9 @@
+---
+import {MENU_ITEM} from "../utils/constants";
+import Header from "../components/header/Header.astro";
+
+const {menuActiveItem=MENU_ITEM.HOME} = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -20,3 +26,9 @@
 		height: 100%;
 	}
 </style>
+<body>
+	<Header menuActiveItem={menuActiveItem} />
+	<main class="min-h-screen w-full">
+		<slot />
+	</main>
+</body>

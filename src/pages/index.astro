@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from "../components/header/Header.astro";
-import {MENU_ITEM} from "../utils/menu.util";
+import {MENU_ITEM} from "../utils/constants";
 ---
 
-<Layout>
-	<Header menuActiveItem={MENU_ITEM.HOME} />
+<Layout menuActiveItem={MENU_ITEM.HOME}>
+	<!-- CONTENT HERE -->
 </Layout>
+

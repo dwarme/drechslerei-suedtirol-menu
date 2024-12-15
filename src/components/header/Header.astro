@@ -14,7 +14,7 @@ const {menuActiveItem: activeItem} = Astro.props;
 <input id="menustate" type="checkbox" hidden />
 
 <header class="fixed z-50 top-0 left-0 right-0 bg-white lg:bg-transparent">
-    <div class="w-full h-[96px] md:h-[120px] pl-12 pr-12 flex items-center">
+    <div class="w-full h-[96px] md:h-[120px] px-[24px] lg:px-12 flex items-center">
 
         <HeaderMenuTrigger />
 
@@ -28,7 +28,3 @@ const {menuActiveItem: activeItem} = Astro.props;
 </header>
 
 <Menu activeItem={activeItem} />
-
-<main class="min-h-screen w-full">
-
-</main>
