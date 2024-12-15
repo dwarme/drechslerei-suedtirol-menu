@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#menustate:checked ~ .menu-box {
+    visibility: visible;
+    opacity: 1;
+}
+
+#menustate:checked ~ header .label-icon-close{
+    display: inline-block;
+}
+
+#menustate:checked ~ header .label-icon-open{
+    display: none;
+}
+
+@layer components {
+    /*dls mean DrechsLerei-Suedtirol*/
+    .dls-icon-container {
+        @apply w-[48px] h-[48px] bg-white rounded-full flex items-center justify-center border border-transparent border-[#CFCFCF] lg:border-transparent
+    }
+}

@@ -1,0 +1,22 @@
+---
+const {src, className='', alt='', active=false} = Astro.props;
+---
+
+<style>
+    .menu-nav-image {
+        opacity: 0;
+    }
+
+    .menu-nav-image.active {
+        opacity: 1;
+        z-index: 10;
+    }
+</style>
+
+<img
+     width="1500"
+     height="1688"
+     src={src}
+     alt={alt}
+     class={`menu-nav-image h-full w-full max-w-full ${active ? 'active' : ''} object-cover object-center absolute left-0 top-0 bottom-0 right-0 ${className} transition-opacity duration-700`}
+/>

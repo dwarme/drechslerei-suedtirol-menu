@@ -1,0 +1,107 @@
+---
+import MenuNavItem from "./MenuNavItem.astro";
+import MenuNavItemImage from "./MenuNavItemImage.astro";
+import MenuNavItemContact from "./MenuNavItemContact.astro";
+import MenuFooter from "./menu-footer/MenuFooter.astro";
+import {MENU_ITEM} from "../../../utils/menu.util";
+
+const {activeItem} = Astro.props;
+
+// Utility to dynamically determine if an item is active
+const isActive = (item: string) => activeItem === item;
+
+---
+
+<div class="menu-box fixed inset-0 z-40 w-full overflow-y-auto invisible opacity-0 transition-opacity duration-700">
+    <div class="flex items-center flex-nowrap w-full min-h-full px-12 lg:pr-0 relative">
+        <div class="flex flex-col w-full lg:w-2/4 pt-0 lg:pt-[96px] pl-0 xl:pl-[180px] gap-28">
+            <!-- Navigation Section -->
+            <nav class="w-full">
+                <ul class="w-full flex flex-col gap-[24px]">
+                    <!-- Navigation Items -->
+                    <MenuNavItem
+                        href="/"
+                        title="Home"
+                        refImageClassName="menu-item-1-image"
+                        active={isActive(MENU_ITEM.HOME)}
+                    />
+
+                    <MenuNavItem
+                        href="/about"
+                        title="Unternehmen"
+                        refImageClassName="menu-item-2-image"
+                        active={isActive(MENU_ITEM.UNTERNEHMEN)}
+                    />
+
+                    <MenuNavItem
+                         href="/drechslerei"
+                         title="Drechslerei"
+                         refImageClassName="menu-item-3-image"
+                         active={isActive(MENU_ITEM.DRECHSLEREI)}
+                    />
+
+                    <MenuNavItemContact
+                         href="/contact"
+                         title="IN KONTAKT TRETEN"
+                    />
+
+                </ul>
+            </nav>
+
+            <!-- Menu Footer -->
+            <MenuFooter />
+
+        </div>
+
+        <!-- Image Preview Section -->
+        <div class="menu-image-box w-2/4 h-full hidden lg:block sticky top-0">
+            <div class="w-full h-full relative pb-[100vh]">
+                <!-- Image Items -->
+                <MenuNavItemImage
+                        src="https://cms.drechslerei-suedtirol.com/media/image_half__1500/dsc985210_1.jpeg"
+                        className="menu-item-1-image"
+                        alt="Home"
+                        active={isActive(MENU_ITEM.HOME)}
+                />
+
+                <MenuNavItemImage
+                        src="https://cms.drechslerei-suedtirol.com/media/image_half/dsc987710.jpg"
+                        className="menu-item-2-image"
+                        alt="Unternehmen"
+                        active={isActive(MENU_ITEM.UNTERNEHMEN)}
+                />
+
+                <MenuNavItemImage
+                        src="https://cms.drechslerei-suedtirol.com/media/image_half__1500/dsc985210_1.jpeg"
+                        className="menu-item-3-image"
+                        alt="Drechslerei"
+                        active={isActive(MENU_ITEM.DRECHSLEREI)}
+                />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const menuBox = document.querySelector<HTMLDivElement>('.menu-box')!;
+
+    // Query all list items with the `data-ref-image-class-name` attribute
+    const elements = menuBox?.querySelectorAll<HTMLLIElement>('li[data-ref-image-class-name]');
+    elements?.forEach((element) => {
+        element.addEventListener('mouseover', () => {
+
+            // Find the currently active image in the menu image box
+            const currentActiveImage = menuBox.querySelector('img.active');
+            if (currentActiveImage) {
+                currentActiveImage.classList.remove('active');
+            }
+
+            // Add the 'active' class to the target image based on the hovered element
+            const refClassName = element.dataset.refImageClassName;
+            if (refClassName) {
+                const targetImage = menuBox.querySelector(`.${refClassName}`);
+                targetImage?.classList.add('active');
+            }
+        });
+    });
+</script>
