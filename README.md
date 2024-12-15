@@ -1,34 +1,11 @@
-# Astro Starter Kit: Basics
 
-```sh
-npm create astro@latest -- --template basics
-```
+## <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.77 226.77" fill="#fff" width="40" style="margin-right: 15px"> <path class="" d="M128.8,109.62,214.83,0h-61.5L97.08,71.68,60.18,27.57h0L37.12,0H0V226.77H36.87l61.2-78,65.22,78h63.48ZM35.41,223.77H3V3H35.72Q47.59,17.17,59.44,31.36,48.21,89.83,37,148.3L99.44,73.54,154.79,3h53.87Zm82.36-56.09,10.32-54.25,92.26,110.34H164.69Z"></path></svg> Kreatif
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+# Drechslerei Südtirol Menu Project
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+# Technogy Used
+- Astro JS
+- Tailwind CSS
 
 ## 🧞 Commands
 
@@ -43,6 +20,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
