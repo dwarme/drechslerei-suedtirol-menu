@@ -3,7 +3,7 @@
 
 # Drechslerei Südtirol Menu Project
 
-# Technogy Used
+# Tech Stack
 - Astro JS
 - Tailwind CSS
 
