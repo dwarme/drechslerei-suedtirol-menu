@@ -3,7 +3,8 @@ const {id='', checked=false, slideIndex=''} = Astro.props;
 ---
 
 <style is:global>
-    .section-slider-actions input:checked ~ .slider-action span {
+    .section-slider-actions input:checked ~ .slider-action span,
+    .slider-action:hover span {
         background-color: #000;
     }
 </style>
