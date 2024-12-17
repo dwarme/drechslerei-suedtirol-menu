@@ -9,7 +9,7 @@ const { href, title, refImageClassName, active=false } = Astro.props;
 </style>
 
 <li
-     class={`menu-nav-item ${active ? 'active' : ''} uppercase font-bold text-[#29441E]  lg:text-[#2D1D10] lg:hover:text-[#2D1D10] text-opacity-[.5] lg:text-opacity-[.25] text-4xl md:text-5xl lg:text-6xl transition-colors duration-700`}
+     class={`menu-nav-item ${active ? 'active' : ''} uppercase font-bold text-[#29441E]  lg:text-[#2D1D10] lg:hover:text-[#2D1D10] text-opacity-[.5] lg:text-opacity-[.25] text-4xl lg:text-5xl transition-all duration-700`}
      data-ref-image-class-name={refImageClassName}
 >
     <a {href}>{title}</a>
