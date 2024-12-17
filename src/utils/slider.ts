@@ -145,9 +145,9 @@ export class Slider {
      */
     private _goToSlide() {
         // @ts-ignore
-        this.#scrollerContainerLeft?.scrollToElement(`.element-${this.#currentIndex}`, 900);
+        this.#scrollerContainerLeft?.scrollToElement(`.element-${this.#currentIndex}`, 600);
         // @ts-ignore
-        this.#scrollerContainerRight?.scrollToElement(`.element-${this.#currentIndex}`, 1100);
+        this.#scrollerContainerRight?.scrollToElement(`.element-${this.#currentIndex}`, 600);
     }
 
 }
