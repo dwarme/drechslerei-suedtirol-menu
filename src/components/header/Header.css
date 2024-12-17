@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 #menustate:checked ~ .menu-box {
-    visibility: visible;
-    opacity: 1;
+    display: block;
 }
 
 #menustate:checked ~ header .label-icon-close{

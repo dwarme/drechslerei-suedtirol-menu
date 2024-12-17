@@ -1,0 +1,27 @@
+---
+const {id='', checked=false, slideIndex=''} = Astro.props;
+---
+
+<style is:global>
+    .section-slider-actions input:checked ~ .slider-action span {
+        background-color: #000;
+    }
+</style>
+
+<div class="slider-action -translate-x-6">
+    <input
+            id={id}
+            type="radio"
+            name="slide-index"
+            hidden="hidden"
+            {checked}
+    />
+    <label
+            for={id}
+            role="button"
+            class="slider-action w-12 h-12 rounded-full bg-white flex items-center justify-center"
+            data-slide-index={slideIndex}
+    >
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#CFCFCF] transition-colors duration-700"></span>
+    </label>
+</div>

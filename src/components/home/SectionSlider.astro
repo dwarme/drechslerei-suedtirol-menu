@@ -1,0 +1,88 @@
+---
+import SlideItemHeadingContent from "./slider/SlideItemHeadingContent.astro";
+import SlideItemImage from "./slider/SlideItemImage.astro";
+import SliderAction from "./slider/SliderAction.astro";
+
+const SLIDES = [
+    {
+        class: "element-0",
+        heading: "ARCHITECTURE",
+        link: "/",
+        linkTitle: "Mehr erfahren",
+        imageSrc: "https://res.cloudinary.com/dyvzh8f9s/image/upload/v1734384747/d2b910a28d68103c7c6c0d265d0b7374_ufvy6r.jpg",
+    },
+    {
+        class: "element-1",
+        heading: "LIVING",
+        link: "/",
+        linkTitle: "Mehr erfahren",
+        imageSrc: "https://res.cloudinary.com/dyvzh8f9s/image/upload/v1734384754/c6c5c2b4da92998451cc23d59d7f8fb7_1_b8px1a.jpg",
+    },
+    {
+        class: "element-2",
+        heading: "LIFESTYLE",
+        link: "/",
+        linkTitle: "Mehr erfahren",
+        imageSrc: "https://res.cloudinary.com/dyvzh8f9s/image/upload/v1734384747/a8ba4ee8439d4bf272475291f174e02a_k3es1n.jpg",
+    },
+];
+---
+
+<section class="section-slider w-full mt-24 lg:mt-0">
+    <div class="w-full">
+        <div class="w-full flex flex-col lg:flex-row items-center flex-nowrap">
+            <div class="scroll-container-left order-2 lg:order-1 max-md:hidden w-full lg:w-2/4 h-[50vh] lg:h-screen overflow-hidden">
+
+                {SLIDES.map((slide) => (
+                        <SlideItemHeadingContent
+                                class={slide.class}
+                                heading={slide.heading}
+                                link={slide.link}
+                                linkTitle={slide.linkTitle}
+                        />
+                ))}
+
+            </div>
+            <div class="scroll-container-right order-1 lg:order-2 w-full lg:w-2/4 h-auto md:h-[50vh] lg:h-screen overflow-hidden">
+
+                {SLIDES.map((slide, index) => (
+                        <SlideItemImage
+                                class={`element-${SLIDES.length - index - 1}`}
+                                src={slide.imageSrc}
+                                alt=""
+                        >
+                            <!-- Mobile version of Slide Heading -->
+                            <SlideItemHeadingContent
+                                    class="hidden max-md:flex"
+                                    heading={slide.heading}
+                                    link={slide.link}
+                                    linkTitle={slide.linkTitle}
+                            />
+                        </SlideItemImage>
+                ))}
+
+            </div>
+        </div>
+        <div class="section-slider-actions max-md:hidden absolute w-fit top-2/4 right-6 lg:top-1/2 lg:left-1/2 flex lg:flex-col items-center gap-4">
+
+            {SLIDES.map((_, index) => (
+                    <SliderAction
+                            id={`input-slide-${index}`}
+                            checked={index===0}
+                            slideIndex={index}
+                    />
+            ))}
+
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+
+    import {Slider} from "../../utils/slider";
+
+    new Slider();
+
+</script>

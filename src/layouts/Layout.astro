@@ -5,16 +5,19 @@ import Header from "../components/header/Header.astro";
 const {menuActiveItem=MENU_ITEM.HOME} = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Drechslerei Südtirol</title>
 	</head>
 	<body>
-		<slot />
+		<Header menuActiveItem={menuActiveItem} />
+		<main class="min-h-screen w-full">
+			<slot />
+		</main>
 	</body>
 </html>
 
@@ -26,9 +29,3 @@ const {menuActiveItem=MENU_ITEM.HOME} = Astro.props;
 		height: 100%;
 	}
 </style>
-<body>
-	<Header menuActiveItem={menuActiveItem} />
-	<main class="min-h-screen w-full">
-		<slot />
-	</main>
-</body>

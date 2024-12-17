@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {MENU_ITEM} from "../utils/constants";
+import SectionSlider from "../components/home/SectionSlider.astro";
 ---
 
 <Layout menuActiveItem={MENU_ITEM.HOME}>
-	<!-- CONTENT HERE -->
+	<div class="content w-full">
+		<SectionSlider />
+	</div>
 </Layout>
-
