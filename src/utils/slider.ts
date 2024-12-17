@@ -65,17 +65,17 @@ Element.prototype.scrollToElement = function (selector: string, duration: number
 };
 
 export class Slider {
-    private _currentIndex: number = 0; // Tracks the current slide index
-    private readonly _scrollerContainerLeft: HTMLDivElement | null;
-    private readonly _scrollerContainerRight: HTMLDivElement | null;
+    #currentIndex: number = 0; // Tracks the current slide index
+    readonly #scrollerContainerLeft: HTMLDivElement | null;
+    readonly #scrollerContainerRight: HTMLDivElement | null;
 
     constructor() {
         // Initialize the scroller containers
-        this._scrollerContainerLeft = document.querySelector('.scroll-container-left');
-        this._scrollerContainerRight = document.querySelector('.scroll-container-right');
+        this.#scrollerContainerLeft = document.querySelector('.scroll-container-left');
+        this.#scrollerContainerRight = document.querySelector('.scroll-container-right');
 
         // Safeguard: Log a warning if the containers are not found
-        if (!this._scrollerContainerLeft || !this._scrollerContainerRight) {
+        if (!this.#scrollerContainerLeft || !this.#scrollerContainerRight) {
             console.warn("Scroller containers not found. Ensure the DOM has elements with appropriate classes.");
         }
 
@@ -104,9 +104,9 @@ export class Slider {
      */
     private _scrollToCurrentSlide(leftDuration: number, rightDuration: number) {
         // @ts-ignore
-        this._scrollerContainerLeft?.scrollToElement(`.element-${this._currentIndex}`, leftDuration, false);
+        this.#scrollerContainerLeft?.scrollToElement(`.element-${this.#currentIndex}`, leftDuration, false);
         // @ts-ignore
-        this._scrollerContainerRight?.scrollToElement(`.element-${this._currentIndex}`, rightDuration, false);
+        this.#scrollerContainerRight?.scrollToElement(`.element-${this.#currentIndex}`, rightDuration, false);
     }
 
     /**
@@ -119,7 +119,7 @@ export class Slider {
                 // Parse and set the new slide index
                 const index = parseInt(element.dataset.slideIndex || '0', 10);
                 if (!isNaN(index)) {
-                    this._currentIndex = index;
+                    this.#currentIndex = index;
                     this._goToSlide();
                 } else {
                     console.warn(`Invalid slide index for element:`, element);
@@ -134,9 +134,9 @@ export class Slider {
      */
     private _handleScreenResize() {
         // @ts-ignore
-        this._scrollerContainerLeft?.scrollToElement(`.element-${this._currentIndex}`, 500);
+        this.#scrollerContainerLeft?.scrollToElement(`.element-${this.#currentIndex}`, 500);
         // @ts-ignore
-        this._scrollerContainerRight?.scrollToElement(`.element-${this._currentIndex}`, 500);
+        this.#scrollerContainerRight?.scrollToElement(`.element-${this.#currentIndex}`, 500);
     }
 
     /**
@@ -145,9 +145,9 @@ export class Slider {
      */
     private _goToSlide() {
         // @ts-ignore
-        this._scrollerContainerLeft?.scrollToElement(`.element-${this._currentIndex}`, 900);
+        this.#scrollerContainerLeft?.scrollToElement(`.element-${this.#currentIndex}`, 900);
         // @ts-ignore
-        this._scrollerContainerRight?.scrollToElement(`.element-${this._currentIndex}`, 1100);
+        this.#scrollerContainerRight?.scrollToElement(`.element-${this.#currentIndex}`, 1100);
     }
 
 }
